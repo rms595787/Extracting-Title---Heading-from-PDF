@@ -1,5 +1,4 @@
 # main.py
-<<<<<<< HEAD
 import sys
 import os
 from scripts.auto_detector import detect_pdf_type_and_extract
@@ -48,40 +47,3 @@ if __name__ == "__main__":
     else:
         os.makedirs(INPUT_PDF_DIR, exist_ok=True)
         main(sys.argv[1])
-=======
-import os
-import sys
-import json
-from extract.pdf_outline_extractor import PDFOutlineExtractor
-
-INPUT_DIR = "input"
-OUTPUT_DIR = "output"
-
-
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: python main.py <pdf_filename>")
-        return
-
-    filename = sys.argv[1]
-    input_path = os.path.join(INPUT_DIR, filename)
-
-    if not os.path.exists(input_path):
-        print(f"File not found: {input_path}")
-        return
-
-    extractor = PDFOutlineExtractor()
-    result = extractor.extract_outline(input_path)
-
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-    output_file = os.path.join(OUTPUT_DIR, filename.replace(".pdf", "_outline.json"))
-
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(result, f, indent=2, ensure_ascii=False)
-
-    print(f"✅ Outline saved to {output_file}")
-
-
-if __name__ == "__main__":
-    main()
->>>>>>> 7a8c88b8e6cfd8145055e0a2c56349ef372becfa
