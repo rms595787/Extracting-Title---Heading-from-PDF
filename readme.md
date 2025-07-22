@@ -148,12 +148,12 @@ The final result is output as a JSON file like:
 ```mermaid
 graph TD
   A[main.py parses PDF] --> B[pdf_parser or ocr_pdf_parser]
-  B --> C[generate_csv.py creates input.csv]
-  C --> D[heading_detector.py predicts heading level]
-  D --> E[Creates output.csv & output.json]
-  E --> F[User reviews and corrects output.csv]
-  F --> G[active_learning_loop.py]
-  G --> H[Promote + Retrain Model]
+  B --> C[ generate_csv.py creates input.csv ]
+  C --> D[ heading_detector.py predicts heading level ]
+  D --> E[ Creates output.csv & output.json ]
+  E --> F[ User reviews and corrects output.csv ]
+  F --> G[ active_learning_loop.py ]
+  G --> H[ Promote + Retrain Model ]
 ```
 
 ---
