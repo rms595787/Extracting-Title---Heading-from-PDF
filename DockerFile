@@ -1,0 +1,27 @@
+# Use a slim, official Python image
+FROM python:3.10-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies (for OCR and PDF rendering)
+RUN apt-get update && apt-get install -y \
+    tesseract-ocr \
+    poppler-utils \
+    libgl1-mesa-glx \
+    gcc \
+    build-essential \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements and install Python packages
+COPY requirements.txt .
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+# Copy the entire project
+COPY . .
+
+# Create required directories if they don't exist
+RUN mkdir -p input_pdfs output parsed_csv training_data/v1 models
+
+# Default entry command (PDF file must be passed as arg at runtime)
+CMD ["python", "main.py"]

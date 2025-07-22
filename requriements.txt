@@ -1,0 +1,18 @@
+# PDF Parsing
+pymupdf==1.22.3              # For extracting layout + text properties from structured PDFs
+pdf2image==1.16.3            # Converts PDF pages to images (used for scanned PDFs)
+pytesseract==0.3.10          # OCR tool to extract text from images
+
+# Machine Learning
+scikit-learn==1.3.2          # GradientBoostingClassifier, LabelEncoder, etc.
+joblib==1.3.2                # For saving/loading trained models
+
+# Data Handling
+pandas==2.1.3                # Reading/writing CSVs and data manipulation
+numpy==1.26.2                # Math operations used in model training
+
+# Visualization (optional but recommended for evaluation)
+matplotlib==3.8.2            # For plotting charts (F1, accuracy, etc.)
+
+# System utilities
+tqdm==4.66.1                 # (Optional) Progress bars for long loops
